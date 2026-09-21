@@ -195,7 +195,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </Link>
           </div>
           <a
-            href="https://github.com/chitrashrees897-Chitra/chatbot_chitra"
+            href="https://github.com/Thanu09-t/multiligual-voice-agent"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#2B1810] flex items-center space-x-1 transition-colors pt-1 border-t border-[#2B1810]/10 text-[10px] font-sans"

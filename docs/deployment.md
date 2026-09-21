@@ -47,7 +47,7 @@ Because real-time voice requires persistent, bidirectional WebSockets, deploy th
 ### Deploying on Render (Recommended Free/Simple):
 1. Sign up/Log in at [render.com](https://render.com).
 2. Click **New +** -> **Web Service**.
-3. Connect your GitHub repository: `chatbot_chitra`.
+3. Connect your GitHub repository: `multiligual-voice-agent`.
 4. Configure the service settings:
    - **Name**: `nova-backend`
    - **Root Directory**: `backend`
@@ -74,7 +74,7 @@ Because real-time voice requires persistent, bidirectional WebSockets, deploy th
 
 1. Log in to [vercel.com](https://vercel.com) using your GitHub account.
 2. On your Vercel Dashboard, click **Add New...** -> **Project**.
-3. Import your GitHub repository: `chatbot_chitra`.
+3. Import your GitHub repository: `multiligual-voice-agent`.
 4. Configure the project:
    - **Framework Preset**: `Next.js` (automatically detected).
    - **Root Directory**: Click **Edit** and choose `frontend`.

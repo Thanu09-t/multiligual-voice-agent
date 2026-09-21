@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "FastAPI",
     "Next.js",
   ],
-  authors: [{ name: "chitrashrees897-Chitra" }],
+  authors: [{ name: "Thanu09-t" }],
   icons: {
     icon: "/nova-icon.svg",
     apple: "/nova-icon.svg",

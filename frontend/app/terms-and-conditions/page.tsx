@@ -136,8 +136,7 @@ export default function TermsAndConditionsPage() {
           </p>
           <div className="p-4 rounded-xl bg-white border border-[#2B1810]/12 text-xs font-sans space-y-1 text-[#45281C] shadow-xs">
             <div><strong>Entity:</strong> NOVA Voice Agent Platform</div>
-            <div><strong>Email:</strong> chitrashrees897@gmail.com</div>
-            <div><strong>Repository:</strong> <a href="https://github.com/chitrashrees897-Chitra/chatbot_chitra" target="_blank" rel="noopener noreferrer" className="text-[#2B1810] underline">github.com/chitrashrees897-Chitra/chatbot_chitra</a></div>
+            <div><strong>Repository:</strong> <a href="https://github.com/Thanu09-t/multiligual-voice-agent" target="_blank" rel="noopener noreferrer" className="text-[#2B1810] underline">github.com/Thanu09-t/multiligual-voice-agent</a></div>
           </div>
         </section>
       </div>
