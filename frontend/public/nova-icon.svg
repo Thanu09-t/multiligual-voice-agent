@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="28" fill="#0B0F19" />
+  <rect x="1" y="1" width="126" height="126" rx="27" fill="none" stroke="#1E293B" stroke-width="2" />
+  
+  <!-- Outer precision audio wave ring -->
+  <circle cx="64" cy="64" r="42" fill="none" stroke="#00E5FF" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="4 4" />
+  <circle cx="64" cy="64" r="32" fill="none" stroke="#00E5FF" stroke-opacity="0.6" stroke-width="2.5" />
+  
+  <!-- Central core -->
+  <circle cx="64" cy="64" r="18" fill="#00E5FF" fill-opacity="0.15" stroke="#00E5FF" stroke-width="2" />
+  <circle cx="64" cy="64" r="8" fill="#00E5FF" />
+  <circle cx="64" cy="64" r="3" fill="#FFFFFF" />
+</svg>
