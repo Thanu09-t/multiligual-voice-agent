@@ -25,7 +25,10 @@ class ResilientLLMProvider(LLMProvider):
         last_error = None
         for p in self.providers:
             try:
-                return await p.generate(messages, tools=tools, temperature=temperature)
+                res = await p.generate(messages, tools=tools, temperature=temperature)
+                if res and res.strip():
+                    return res.strip()
+                logger.warning(f"Provider '{p.__class__.__name__}' returned empty output. Trying fallback...")
             except Exception as e:
                 logger.warning(f"Provider '{p.__class__.__name__}' generate failed: {e}. Trying fallback...")
                 last_error = e
@@ -73,18 +76,18 @@ def get_llm_provider() -> LLMProvider:
 
     # Primary provider
     if provider_name == "groq" and settings.GROQ_API_KEY:
-        chain.append(GroqLLMProvider(api_key=settings.GROQ_API_KEY, model=model or "openai/gpt-oss-20b"))
-        chain.append(GroqLLMProvider(api_key=settings.GROQ_API_KEY, model="qwen/qwen3.8-27b"))
+        chain.append(GroqLLMProvider(api_key=settings.GROQ_API_KEY, model=model or "qwen/qwen3.8-27b"))
+        chain.append(GroqLLMProvider(api_key=settings.GROQ_API_KEY, model="allam-2-7b"))
     elif provider_name == "gemini" and settings.GEMINI_API_KEY:
-        chain.append(GeminiLLMProvider(api_key=settings.GEMINI_API_KEY, model=model or "gemini-1.5-flash"))
+        chain.append(GeminiLLMProvider(api_key=settings.GEMINI_API_KEY, model=model or "gemini-flash-latest"))
     elif provider_name == "openai" and settings.OPENAI_API_KEY:
         chain.append(OpenAILLMProvider(api_key=settings.OPENAI_API_KEY, model=model or "gpt-4o-mini"))
 
     # Fallback live provider if another key is present
     if settings.GROQ_API_KEY and provider_name != "groq":
-        chain.append(GroqLLMProvider(api_key=settings.GROQ_API_KEY, model="openai/gpt-oss-20b"))
+        chain.append(GroqLLMProvider(api_key=settings.GROQ_API_KEY, model="qwen/qwen3.8-27b"))
     if settings.GEMINI_API_KEY and provider_name != "gemini":
-        chain.append(GeminiLLMProvider(api_key=settings.GEMINI_API_KEY, model="gemini-1.5-flash"))
+        chain.append(GeminiLLMProvider(api_key=settings.GEMINI_API_KEY, model="gemini-flash-latest"))
     if settings.OPENAI_API_KEY and provider_name != "openai":
         chain.append(OpenAILLMProvider(api_key=settings.OPENAI_API_KEY, model="gpt-4o-mini"))
 

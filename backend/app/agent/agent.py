@@ -207,7 +207,7 @@ class NovaAgent:
                         f"User question: {text}\n\n"
                         f"Answer the user's question directly and concisely in 1 to 2 clear sentences. "
                         f"CRITICAL RULES:\n"
-                        f"- Respond in the EXACT SAME language that the user asked in (e.g. Hindi, Spanish, French, German, etc.).\n"
+                        f"- Respond in the EXACT SAME language that the user asked in.\n"
                         f"- Do NOT say 'I searched online', 'according to the search', or mention search engines.\n"
                         f"- Do NOT list links, URLs, or citations.\n"
                         f"- Speak naturally and directly to the point."
@@ -226,10 +226,19 @@ class NovaAgent:
                         direct_answer = direct_answer.strip()
                     except Exception as e:
                         logger.warning(f"Fast LLM synthesis of search results failed: {e}")
+                        direct_answer = ""
+
+                    # If LLM returned empty string or canned mock greeting, extract directly from top search snippets
+                    is_canned = not direct_answer or any(
+                        phrase in direct_answer.lower()
+                        for phrase in ["hello! i am nova", "i understand your query", "i understand:", "ready to process your request"]
+                    )
+                    if is_canned:
                         import re as _re
                         top_snip = snippets[0] if snippets else "I don't have details on that right now."
                         sentences = _re.split(r"(?<=[.!?])\s+", top_snip)
-                        direct_answer = " ".join(sentences[:2]).strip()
+                        clean_s = [s.strip() for s in sentences if len(s.strip()) > 15]
+                        direct_answer = " ".join(clean_s[:2]).strip() if clean_s else top_snip
 
                     display_text = direct_answer
                     spoken_text = direct_answer

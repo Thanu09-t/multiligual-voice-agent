@@ -29,5 +29,12 @@ async def health_check(db: AsyncSession = Depends(get_db)):
             "llm": settings.LLM_PROVIDER,
             "stt": settings.STT_PROVIDER,
             "tts": settings.TTS_PROVIDER,
+            "active_model": settings.LLM_MODEL or "qwen/qwen3.8-27b",
+        },
+        "api_keys_configured": {
+            "groq": bool(settings.GROQ_API_KEY),
+            "gemini": bool(settings.GEMINI_API_KEY),
+            "openai": bool(settings.OPENAI_API_KEY),
+            "stt": bool(settings.STT_API_KEY or settings.GROQ_API_KEY),
         },
     }
