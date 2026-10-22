@@ -15,7 +15,7 @@
 - ⚡ **Zero-Latency Barge-In (Interruption)**: Client-side Voice Activity Detection (VAD) instantly halts speech and cancels server tasks when the user begins speaking.
 - 🧠 **Multi-Step Agent Reasoning**: Intent parsing, task planning, and tool orchestration.
 - 🛠️ **Extensible Tool Registry**: Built-in Calculator, Weather, Web Search, and File Search with safety confirmation for consequential actions.
-- 📚 **Document RAG Intelligence**: PDF, DOCX, and TXT parsing, semantic chunking, and vector retrieval.
+- 📚 **Document RAG Intelligence**: PDF, DOCX, and TXT parsing, semantic chunking and vector retrieval.
 - 💾 **Dual-Layer Memory**: Short-term sliding conversation context + persistent long-term user facts and preferences.
 - 🔮 **Futuristic AI OS Interface**: Interactive dynamic AI Voice Orb reacting to state and audio energy, live Web Audio API waveform visualizer, and dark glassmorphic styling.
 - 🧩 **Modular AI Providers**: Easily swap LLM (OpenAI, Groq, Gemini), STT (Whisper, Groq), and TTS (Edge-TTS, OpenAI) engines without altering core agent logic.
